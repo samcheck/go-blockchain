@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Wallet</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                url: '/wallet',
+                type: 'POST',
+                success: function (response) {
+                    $('#public_key').val(response['public_key']);
+                    $('#private_key').val(response['private_key']);
+                    $('#blockchain_address').val(response['blockchain_address']);
+                    console.info(response)
+                },
+                error: function (error) {
+                    console.error(error)
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>Wallet</h1>
+        <div id="wallet_amount">0</div>
+        <button id="reload_wallet">Reload Wallet</button>
+        <p>Public Key</p>
+        <textarea name="public_key" id="public_key" cols="100" rows="1"></textarea>
+        <p>Private Key</p>
+        <textarea name="private_key" id="private_key" cols="100" rows="1"></textarea>
+        <p>Blockchain Address</p>
+        <textarea name="blockchain_address" id="blockchain_address" cols="100" rows="1"></textarea>
+    </div>
+    <hr />
+    <div>
+        <h1>Send Money</h1>
+        <div>Blockchain Address: <input id="recipient_blockchain_address" size="100" type="text"> <br>
+            Amount: <input id="send_amount" type="number"> <br>
+            <button id="send_money">Send</button>
+        </div>
+    </div>
+</body>
+
+</html>
