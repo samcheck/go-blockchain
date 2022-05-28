@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/samcheck/go-blockchain/server"
+	blockchainserver "github.com/samcheck/go-blockchain/blockchain_server"
 )
 
 func init() {
@@ -18,7 +18,7 @@ func main() {
 
 	flag.Parse()
 	fmt.Println(*port)
-	appServer := server.NewBlockChainServer(uint16(*port))
+	appServer := blockchainserver.NewBlockChainServer(uint16(*port))
 	appServer.Run()
 	// app := NewBlockChainServer(uint16(*port))
 }
