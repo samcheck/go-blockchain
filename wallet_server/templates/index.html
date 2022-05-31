@@ -44,10 +44,10 @@
                     data: JSON.stringify(transaction_data),
                     success: function (response) {
 
-                        if ($.parseJSON(response).message === 'fail') {
+                        /* if ($.parseJSON(response.body).message === 'fail') {
                             alert('failed')
                             return
-                        }
+                        } */
                         console.info(response)
                         alert('Success')
                     },
