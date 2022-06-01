@@ -10,9 +10,9 @@ import (
 	"path"
 	"strconv"
 
-	"github.com/samcheck/go-blockchain/block"
-	"github.com/samcheck/go-blockchain/utils"
-	"github.com/samcheck/go-blockchain/wallet"
+	"github.com/samcheck/go-blockchain/internal/block"
+	"github.com/samcheck/go-blockchain/internal/utils"
+	"github.com/samcheck/go-blockchain/internal/wallet"
 )
 
 const TEMPLATE_DIR = "wallet_server/templates"
@@ -95,11 +95,11 @@ func (ws *WalletServer) CreateTransaction(w http.ResponseWriter, req *http.Reque
 		signatureStr := signature.String()
 
 		bt := &block.TransactionRequest{
-			t.SenderBlockChainAddress,
-			t.RecipientBlockChainAddress,
-			t.SenderPublicKey,
-			&value32,
-			&signatureStr}
+			SenderBlockChainAddress:    t.SenderBlockChainAddress,
+			RecipientBlockChainAddress: t.RecipientBlockChainAddress,
+			SenderPublicKey:            t.SenderPublicKey,
+			Value:                      &value32,
+			Signature:                  &signatureStr}
 		m, _ := json.Marshal(bt)
 
 		buf := bytes.NewBuffer(m)

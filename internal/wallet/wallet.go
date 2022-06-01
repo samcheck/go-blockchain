@@ -9,7 +9,7 @@ import (
 	"fmt"
 
 	"github.com/btcsuite/btcutil/base58"
-	"github.com/samcheck/go-blockchain/utils"
+	"github.com/samcheck/go-blockchain/internal/utils"
 	"golang.org/x/crypto/ripemd160"
 )
 
@@ -104,7 +104,7 @@ func (t *Transaction) GenerateSignature() *utils.Signature {
 	m, _ := json.Marshal(t)
 	h := sha256.Sum256([]byte(m))
 	r, s, _ := ecdsa.Sign(rand.Reader, t.senderPrivateKey, h[:])
-	return &utils.Signature{r, s}
+	return &utils.Signature{R: r, S: s}
 }
 
 func (t *Transaction) MarshalJSON() ([]byte, error) {

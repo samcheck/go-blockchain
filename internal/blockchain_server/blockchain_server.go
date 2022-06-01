@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/samcheck/go-blockchain/block"
-	"github.com/samcheck/go-blockchain/utils"
-	"github.com/samcheck/go-blockchain/wallet"
+	"github.com/samcheck/go-blockchain/internal/block"
+	"github.com/samcheck/go-blockchain/internal/utils"
+	"github.com/samcheck/go-blockchain/internal/wallet"
 )
 
 var cache map[string]*block.Blockchain = make(map[string]*block.Blockchain)

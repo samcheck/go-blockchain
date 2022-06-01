@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/samcheck/go-blockchain/utils"
+	"github.com/samcheck/go-blockchain/internal/utils"
 )
 
 const (

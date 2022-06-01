@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	blockchainserver "github.com/samcheck/go-blockchain/blockchain_server"
+	blockchainserver "github.com/samcheck/go-blockchain/internal/blockchain_server"
 )
 
 func init() {
